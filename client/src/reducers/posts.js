@@ -1,6 +1,7 @@
 import {
   FETCH_ALL,
   CREATE,
+  FETCH_BY_SEARCH,
   UPDATE,
   DELETE,
   LIKE,
@@ -14,6 +15,8 @@ export default (posts = [], action) => {
       return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );
+    case FETCH_BY_SEARCH:
+      return action.payload;
     case CREATE:
       return [...posts, action.payload];
     case UPDATE:
