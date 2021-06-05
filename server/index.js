@@ -17,6 +17,9 @@ app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 const CONNECTION_URL = process.env.MONGO;
 const PORT = process.env.PORT || 5000;
+app.get("/", (req, res) => {
+  res.send("APP IS RUNNING");
+});
 
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

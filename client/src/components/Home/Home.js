@@ -13,7 +13,7 @@ import {
 import { useHistory, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 import { useDispatch } from "react-redux";
-import { getPosts, getPostBySearch } from "../../actions/posts";
+import { getPosts, getPostsBySearch } from "../../actions/posts";
 import Pagination from "../Pagination";
 import useStyles from "./styles";
 
@@ -40,7 +40,7 @@ const Home = () => {
 
   const searchPost = () => {
     if (search.trim() || tags) {
-      dispatch(getPostBySearch({ search, tags: tags.join(",") }));
+      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
       history.push(
         `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")} `
       );
@@ -48,9 +48,7 @@ const Home = () => {
       history.push("/");
     }
   };
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
+
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) =>
     setTags(tags.filter((tag) => tag !== tagToDelete));
@@ -101,7 +99,7 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper className={classes.pagination} elevation={6}>
-              <Pagination />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>
