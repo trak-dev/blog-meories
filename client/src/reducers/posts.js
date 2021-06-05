@@ -8,7 +8,7 @@ import {
   LIKE,
 } from "../constants/actionTypes";
 
-export default (state = { isLoading: true, posts: [] }, action) => {
+const reducer = (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
     case "START_LOADING":
       return { ...state, isLoading: true };
@@ -50,3 +50,4 @@ export default (state = { isLoading: true, posts: [] }, action) => {
       return state;
   }
 };
+export default reducer;
