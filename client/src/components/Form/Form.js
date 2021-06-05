@@ -14,9 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
     selectedFile: "",
   });
   const post = useSelector((state) =>
-    currentId
-      ? state.posts.posts.find((message) => message._id === currentId)
-      : null
+    currentId ? state.posts.find((message) => message._id === currentId) : null
   );
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -71,6 +69,7 @@ const Form = ({ currentId, setCurrentId }) => {
           name="title"
           variant="outlined"
           label="Title"
+          required
           fullWidth
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
@@ -88,6 +87,7 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <TextField
+          required
           name="tags"
           variant="outlined"
           label="Tags (coma separated)"
