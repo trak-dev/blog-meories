@@ -14,6 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
     message: "",
     tags: [],
     selectedFile: "",
+    price: "",
   });
   const post = useSelector((state) =>
     currentId
@@ -27,7 +28,13 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ title: "", message: "", tags: [], selectedFile: "" });
+    setPostData({
+      title: "",
+      message: "",
+      tags: [],
+      selectedFile: "",
+      price: "",
+    });
   };
 
   useEffect(() => {
@@ -75,7 +82,6 @@ const Form = ({ currentId, setCurrentId }) => {
     <Paper className={classes.paper} elevation={6}>
       <form
         autoComplete="off"
-        noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
@@ -87,6 +93,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Title"
           fullWidth
+          required
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
@@ -113,6 +120,16 @@ const Form = ({ currentId, setCurrentId }) => {
             onDelete={(chip) => handleDeleteChip(chip)}
           />
         </div>
+        <TextField
+          name="price"
+          required
+          variant="outlined"
+          label="price"
+          fullWidth
+          type="number"
+          value={postData.price}
+          onChange={(e) => setPostData({ ...postData, price: e.target.value })}
+        />
         <div className={classes.fileInput}>
           <FileBase
             type="file"

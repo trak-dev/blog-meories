@@ -52,8 +52,8 @@ const Auth = () => {
       console.log(error);
     }
   };
-  const googleFailure = () => {
-    console.log("Google Sign In was unsuccessful. Try again");
+  const googleFailure = async (res) => {
+    console.log(res);
   };
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);

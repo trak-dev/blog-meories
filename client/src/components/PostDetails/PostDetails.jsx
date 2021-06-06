@@ -4,11 +4,12 @@ import {
   Typography,
   CircularProgress,
   Divider,
+  Button,
 } from "@material-ui/core/";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useHistory } from "react-router-dom";
-
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { getPost, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
 
@@ -69,8 +70,16 @@ const Post = () => {
           <Typography variant="body1">
             {moment(post.createdAt).fromNow()}
           </Typography>
-
           <Divider style={{ margin: "20px 0" }} />
+          <Typography variant="body1"> price : {post.price}€</Typography>
+          <Button
+            variant="contained"
+            color="default"
+            className={classes.button}
+            startIcon={<AddShoppingCartIcon />}
+          >
+            ADD TO CART
+          </Button>
         </div>
         <div className={classes.imageSection}>
           <img

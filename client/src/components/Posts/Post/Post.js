@@ -30,26 +30,31 @@ const Post = ({ post, setCurrentId }) => {
       return post.likes.find(
         (like) => like === (user?.result?.googleId || user?.result?._id)
       ) ? (
-        <>
-          <ThumbUpAltIcon fontSize="small" />
-          &nbsp;
-          {post.likes.length > 2
-            ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
-        </>
+        <React.Fragment>
+          <ThumbUpAltIcon style={{ fill: "orange  " }} />
+          <Typography style={{ color: "orange" }}>
+            &nbsp;
+            {post.likes.length > 2
+              ? `You and ${post.likes.length - 1} others`
+              : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
+          </Typography>
+        </React.Fragment>
       ) : (
-        <>
-          <ThumbUpAltOutlined fontSize="small" />
-          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
-        </>
+        <React.Fragment>
+          <ThumbUpAltOutlined style={{ fill: "orange" }} />
+          <Typography style={{ color: "orange" }}>
+            &nbsp;{post.likes.length}{" "}
+            {post.likes.length === 1 ? "Like" : "Likes"}
+          </Typography>
+        </React.Fragment>
       );
     }
 
     return (
-      <>
-        <ThumbUpAltOutlined fontSize="small" />
-        &nbsp;Like
-      </>
+      <React.Fragment>
+        <ThumbUpAltOutlined style={{ fill: "orange" }} />
+        <Typography style={{ color: "orange" }}>&nbsp;Like</Typography>
+      </React.Fragment>
     );
   };
 
