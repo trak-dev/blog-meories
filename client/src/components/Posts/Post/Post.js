@@ -31,7 +31,7 @@ const Post = ({ post, setCurrentId }) => {
         (like) => like === (user?.result?.googleId || user?.result?._id)
       ) ? (
         <React.Fragment>
-          <ThumbUpAltIcon style={{ fill: "orange  " }} />
+          <ThumbUpAltIcon fontSize="small" style={{ fill: "orange  " }} />
           <Typography style={{ color: "orange" }}>
             &nbsp;
             {post.likes.length > 2
@@ -41,7 +41,7 @@ const Post = ({ post, setCurrentId }) => {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <ThumbUpAltOutlined style={{ fill: "orange" }} />
+          <ThumbUpAltOutlined fontSize="small" style={{ fill: "orange" }} />
           <Typography style={{ color: "orange" }}>
             &nbsp;{post.likes.length}{" "}
             {post.likes.length === 1 ? "Like" : "Likes"}
@@ -52,7 +52,7 @@ const Post = ({ post, setCurrentId }) => {
 
     return (
       <React.Fragment>
-        <ThumbUpAltOutlined style={{ fill: "orange" }} />
+        <ThumbUpAltOutlined fontSize="small" style={{ fill: "orange" }} />
         <Typography style={{ color: "orange" }}>&nbsp;Like</Typography>
       </React.Fragment>
     );
