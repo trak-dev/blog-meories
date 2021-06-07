@@ -49,8 +49,8 @@ const Navbar = () => {
       </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
-          <Link to="/user" className={classes.link}>
-            <div className={classes.profile}>
+          <div className={classes.profile}>
+            <Link to="/user" className={classes.link}>
               <Avatar
                 className={classes.purple}
                 alt={user?.result.name}
@@ -58,22 +58,28 @@ const Navbar = () => {
               >
                 {user?.result.name.charAt(0)}
               </Avatar>
+
               <Typography className={classes.userName} variant="h6">
                 {user?.result.name}
               </Typography>
-              <IconButton color="default" aria-label="add to shopping cart">
-                <AddShoppingCartIcon fontSize="large" />
-              </IconButton>
-              <Button
-                variant="contained"
-                className={classes.logout}
-                color="secondary"
-                onClick={logout}
-              >
-                Logout
-              </Button>
-            </div>
-          </Link>
+            </Link>
+            <IconButton
+              color="default"
+              aria-label="add to shopping cart"
+              to="/cart"
+              component={Link}
+            >
+              <AddShoppingCartIcon fontSize="large" />
+            </IconButton>
+            <Button
+              variant="contained"
+              className={classes.logout}
+              color="secondary"
+              onClick={logout}
+            >
+              Logout
+            </Button>
+          </div>
         ) : (
           <Button
             component={Link}

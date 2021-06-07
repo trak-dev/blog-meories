@@ -3,20 +3,19 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   card: {
     display: "flex",
-    width: "20%",
+    width: "100%",
     flexDirection: "column",
     justifyContent: "flex-start",
     paddingTop: "10px",
     alignItems: "center",
     borderRadius: "15px",
-    height: "20%",
+    height: "40%",
     position: "relative",
   },
-  div: {
-    width: "100%",
+  cardList: {
     display: "flex",
-    height: "80vh",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "column",
+    backgroundColor: "grey",
+    borderRadius: "10px",
   },
 }));

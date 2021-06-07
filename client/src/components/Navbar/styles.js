@@ -62,5 +62,8 @@ export default makeStyles((theme) => ({
   link: {
     color: "inherit",
     textDecoration: "inherit",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));

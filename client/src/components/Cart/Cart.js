@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Card, Avatar, Typography, CardActions } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import useStyles from "./styles";
+import { Card, CardActions, Typography, Divider } from "@material-ui/core";
 import decode from "jwt-decode";
 import * as actionType from "../../constants/actionTypes";
-import useStyles from "./styles";
+import List from "./List";
 const User = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
@@ -29,24 +30,21 @@ const User = () => {
     setUser(JSON.parse(localStorage.getItem("profile")));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
-  console.log(user);
   return (
     <div className={classes.div}>
       <Card className={classes.card}>
-        <Avatar
-          className={classes.purple}
-          alt={user?.result.name}
-          src={user?.result.imageUrl}
-        >
-          {user?.result.name.charAt(0)}
-        </Avatar>
-        <Typography className={classes.userName} variant="h6">
-          {user?.result.name}
+        <Typography variant="h2">Votre Panier</Typography>
+        <Typography variant="h6">
+          Lié au compte : {user?.result.email}
         </Typography>
-        <Typography className={classes.email} variant="h6">
-          {user?.result.email}
-        </Typography>
-        <CardActions>test</CardActions>
+        <Divider />
+        <CardActions className={classes.cardList}>
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+        </CardActions>
       </Card>
     </div>
   );
