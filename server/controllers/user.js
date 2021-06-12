@@ -1,7 +1,7 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import User from "../models/user.js";
-import dotenv from "dotenv";
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user.js");
+const dotenv = require("dotenv");
 dotenv.config();
 
 export const signin = async (req, res) => {
