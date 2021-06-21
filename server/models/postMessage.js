@@ -7,7 +7,6 @@ const postSchema = mongoose.Schema({
   creator: String,
   tags: { type: [String], required: [true, "please enter at least one tag"] },
   selectedFile: { type: String, required: [true, "please select a file"] },
-  price: Number,
   likes: {
     type: [String],
     default: [],

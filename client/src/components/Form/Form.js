@@ -14,7 +14,6 @@ const Form = ({ currentId, setCurrentId }) => {
     message: "",
     tags: [],
     selectedFile: "",
-    price: "",
   });
   const post = useSelector((state) =>
     currentId
@@ -33,7 +32,6 @@ const Form = ({ currentId, setCurrentId }) => {
       message: "",
       tags: [],
       selectedFile: "",
-      price: "",
     });
   };
 
@@ -120,16 +118,6 @@ const Form = ({ currentId, setCurrentId }) => {
             onDelete={(chip) => handleDeleteChip(chip)}
           />
         </div>
-        <TextField
-          name="price"
-          required
-          variant="outlined"
-          label="price"
-          fullWidth
-          type="number"
-          value={postData.price}
-          onChange={(e) => setPostData({ ...postData, price: e.target.value })}
-        />
         <div className={classes.fileInput}>
           <FileBase
             type="file"
